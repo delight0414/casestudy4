@@ -1,39 +1,32 @@
 $(function(){
-    $(".header_inner").hover(function(){
-        $("header").addClass("active");
-    },
-    function(){
-        $("header").removeClass("active");
-    }
-    );
 ////
     $("#gnb > ul > li").hover(function(){
         if($(this).children().length == 2){
             $("header").addClass("on");
-            $(this).find("ul").addClass("active");
+            $(this).find(".sub").slideDown(20);
         }
     },
     function(){
         if($(this).children().length == 2){
             $("header").removeClass("on");
-            $(this).find("ul").removeClass("active");
+            $(this).find(".sub").slideUp(20);
         }
     });
-
     $("#gnb > ul > li > a").focusin(function(){
+        //console.log($(this).next().length);
         if($(this).next().length === 1){
             $("header").addClass("on");
-            $(this).next().addClass("active"); 
+            $(this).parent().find(".sub").show(); 
             $(this).parent().addClass("on");
         }
         else {
             $(this).parent().addClass("on");
         }
     });
-    $("#gnb li ul li:last-child").focusout(function(){
+    $("#gnb .sale").focusout(function(){
         $("header").removeClass("on");
-        $(this).parent().removeClass("active");
-        $(this).parent().parent().removeClass("on");
+        $(this).parent().parent().parent().parent().removeClass("on");
+        $(this).parent().parent().parent().hide();
     });
     $("#gnb > ul > li > a").focusout(function(){
         if($(this).next().length === 0){
@@ -86,7 +79,9 @@ $("a#btn").click(function(e){
         $(this).addClass("tab");
         $("#mobile").fadeOut(200);
         $("#main .dim").removeClass("active");  
-        $("body").removeClass("fixed");  
+        $("body").removeClass("fixed"); 
+        $("#mobile > ul > li").removeClass("on");
+        $("#mobile li ul").removeClass("active");
     }
 });
 $("#mobile > ul > li").click(function(e){
@@ -109,6 +104,7 @@ $(window).resize(function(){
         $("#mobile").hide();
         $("#main .dim").removeClass("active");
         $("a#btn").removeAttr("class");
+        $("body").removeClass("fixed"); 
     }
     else {
         $("a#btn").removeAttr("class");

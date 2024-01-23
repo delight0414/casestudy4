@@ -34,7 +34,6 @@ body.fixed {
 	word-break: keep-all;
 	height: 100vh;
 	position: relative;
-
 }
 #main header {
 	width: 100%;
@@ -43,11 +42,11 @@ body.fixed {
 	position: fixed;
 	z-index: 1;
 	overflow: hidden;
-	transition: ease 0.2s;
+	transition: 0.2s;
 	z-index: 1000;
 }
 #main header.on {
-	height: 400px;
+	height: 450px;
 }
 #main header .header_inner {
 	position: relative;
@@ -64,11 +63,12 @@ body.fixed {
 	top: 50%;
 	transform: translateY(-50%);
 	display: block;
-	width: 8.4375em;
-	height: 1.875em;
+	width: 135px;
+	height: 30px;
 	overflow: hidden;
 	text-indent: -999px;
 	background: url(../images/logo_white.png) no-repeat;
+	background-size: contain;
 }
 
 #gnb > ul {
@@ -81,89 +81,119 @@ body.fixed {
 	padding: 0 20px;
 	color: #fff;
 }
-
 #main header .header_inner #gnb > ul > li.on > a,
 #main header .header_inner #gnb > ul > li:hover > a { 
 	text-decoration: underline;
 }
-#gnb > ul > li {
-	position: relative;
-}
+
 /*2depth*/
-#gnb li ul {
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
+#gnb ul li .sub {
+	display: none;
 	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	width: 250%;
-	height: 0;
-	overflow: hidden;
+	left: 0;
+	width: 100%;
+}
+#gnb ul li .sub .sub_inner {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	max-width: 1280px;
+	height: 300px;
+	margin: 0 auto;
+	padding: 20px 15vw 0 9vw;
+	gap: 20px;
+} 
+#gnb ul li .sub .sub_inner img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+#gnb ul li .sub .sub_inner .right {
+	display: flex;
+}
+#gnb li .sub .sub_inner ul {
+	display: flex;
+	flex-wrap: wrap;
 	text-align: center;
-	font-size: 0.875em;
+	/* font-size: 0.875em; */
 	box-sizing: border-box;
-	gap: 3px;
+	width: 200px;
+	gap: 2px;
 }
-#gnb li ul li {
+#gnb li .sub .sub_inner ul li {
 	width: calc((100% - 2px)/2);
+	padding: 5px 0;
 }
-#gnb li ul.active {
-	padding-top: 20px;
-	height: 270px;
-}
-#gnb li ul a {
+#gnb li .sub .sub_inner ul li > a {
 	display: inline-block;
-	padding: 0 4px;
-	line-height: 25px;
+	padding: 0 5px;
+	line-height: 20px;
 	color: #6a6a6a;
 	font-size: 0.875em;
 }
-#gnb li ul li a:hover,
-#gnb li ul li a:focus {
+#gnb li .sub .sub_inner ul li a:hover,
+#gnb li .sub .sub_inner ul li a:focus {
 	background-color: #9995;
 	border-radius: 5px;
 }
-#gnb li ul li a span {
+#gnb li .sub .sub_inner .sale {
+	margin-left: 15px;
+	padding: 5px 0;
+}
+#gnb li .sub .sub_inner .sale a {
+	display: block;
+	padding: 0 5px;
 	color: #f00;
+	font-size: 0.875em;
+}
+#gnb li .sub .sub_inner .sale a:hover,
+#gnb li .sub .sub_inner .sale a:focus {
+	background-color: #9995;
+	border-radius: 5px;
+}
+#gnb li .sub .sub_inner .sale a span {
+	line-height: 20px;
+	/* padding: 0 5px ; */
 }
 
-a#btn.tab {
+a#btn {
 	display: none;
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
-	width: 27px;
-	height: 20px;
 	overflow: hidden;
 	text-indent: -9999px;
-	background: url(../images/tab_white.png);
+}
+a#btn.tab {
+	display: none;
+	width: 27px;
+	height: 18px;
+	background: url(../images/tab_white.png) no-repeat;
+	background-size: contain;
 }
 a#btn.close {
-	display: block;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 22px;
-	height: 22px;
-	overflow: hidden;
-	text-indent: -9999px;
-	background: url(../images/close.png) 0 0 no-repeat;
-	background-size: cover;
+	display: none;
+	width: 25px;
+	height: 25px;
+	background: url(../images/close.png) no-repeat;
+	background-size: contain;
 	z-index: 10001;
 }
 #mobile {
 	position: fixed;
 	display: none;
 	right: 0;
-	top: 0;
-	padding: 60px 0;
-	/* margin: 40px 40px 0 ; */
+	top: 4.375em;
+	padding: 30px 0;
 	width: 360px;
 	height: 100vh;
 	background-color: #fff;
 	z-index: 10000;
 	box-sizing: border-box;
+}
+#mobile p {
+	font-size: 1.125em;
+	padding: 20px;
 }
 #mobile > ul > li  {
 	border-bottom: 1px solid #e5e8eb;
@@ -184,7 +214,8 @@ a#btn.close {
 	flex-wrap: wrap;
 	border-top: 1px solid #e5e8eb;
 	gap: 2px;
-	padding: 10px 0 10px  35px;
+	padding: 10px 0 10px 35px;
+	transition: 0.2s;
 }
 #mobile li ul.active {
 	display: flex;
@@ -215,7 +246,9 @@ a#btn.close {
 	width: 100%;
 	object-fit: cover;
 }
-
+#main .slider img.mobile {
+	display: none;
+}
 #main .slider .keytext {
 	position: absolute;
 	left: 20vw;
@@ -223,7 +256,6 @@ a#btn.close {
 	transform: translatey(-50%);
 	white-space: nowrap;
 }
-
 #main .slider .keytext p.title {
 	font-size: 3.25em;
 	font-weight: 700;
@@ -257,6 +289,7 @@ a#btn.close {
 @media only screen and (max-width:1280px) {
 	#main {
 		font-size: 0.875em;
+		overflow-x: hidden;
 	}
 	#gnb > ul > li > a {
 		padding: 0 15px;
@@ -283,11 +316,27 @@ a#btn.close {
 	a#btn.tab {
 		display: block;
 	}
+	a#btn.close {
+		display: block;
+	}
 	#main .slider .keytext p.title {
 		font-size: 2em;
 	}
 	#main .slider .keytext p.subtitle {
 		display: none;
+	}
+}
+@media only screen and (max-width:520px) {
+	#main header .header_inner a.logo{
+		width: 107px;
+		height: 23px;
+		/* background: url(../images/logo_white_m.png) no-repeat; */
+	}
+	#main .slider img.desktop {
+		display: none;
+	}
+	#main .slider img.mobile {
+		display: block;
 	}
 }
 /* sub */
@@ -298,7 +347,6 @@ a#btn.close {
 	background-size: cover;
 	padding: 100px 0;
 	overflow-x: hidden;
-
 }
 #sub .sub_inner {
 	max-width: 1280px;
@@ -325,7 +373,6 @@ a#btn.close {
 #slider .sub_swiper {
     overflow: hidden;
 }
-
 #slider .swiper-wrapper .swiper-slide:nth-child(2n) {
 	margin-top: 40px;
 }
@@ -351,7 +398,6 @@ a#btn.close {
 	color: #fff;
 	background-color: #3E52BB;
 }
-
 #slider .swiper-slide .desc {
 	width: 100%;
 	padding: 20px 30px;
@@ -400,8 +446,6 @@ a#btn.close {
 	background: url(../images/arrow.png) no-repeat;
 	background-size: cover;
 }
-
-
 #sub .btn {
 	text-align: center;
 }
@@ -431,7 +475,6 @@ a#btn.close {
 	}
 	#slider .swiper-slide {
 		height: calc((100% - 30px) / 2);
-
 		position: relative;
 	}
 	#slider .swiper-wrapper .swiper-slide:nth-child(2n) {
@@ -488,7 +531,7 @@ a#btn.close {
 }
 @media only screen and (max-width:720px) {
 	#sub .intro p.title {
-		font-size: 1.25em;
+		font-size: 1.75em;
 		font-weight: 600;
 		color: #fff;
 	}
@@ -496,8 +539,10 @@ a#btn.close {
 		font-size: 0.8125em;
 		font-weight: 500;
 		transition: 0.2s;
-		/* overflow: hidden;
-		text-overflow: ellipsis; */
 	}
-
+}
+@media only screen and (max-width:520px) {
+	#sub .intro p.title {
+		font-size: 1.25em;
+	}
 }
