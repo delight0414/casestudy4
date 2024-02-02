@@ -326,14 +326,10 @@ a#btn.close {
 	#main header .header_inner a.logo{
 		width: 107px;
 		height: 23px;
-		/* background: url(../images/logo_white_m.png) no-repeat; */
 	}
-	/* #main .slider img.desktop {
-		display: none;
+	#main .slider .keytext p.title {
+		font-size: 1.875em;
 	}
-	#main .slider img.mobile {
-		display: block;
-	} */
 }
 /* sub */
 #sub {
