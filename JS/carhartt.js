@@ -34,12 +34,19 @@ $(function(){
         }
     });
 const subSwiper = new Swiper("#slider .sub_swiper", {
-    slidesPerView: 2,
+    slidesPerView: 1,
     grid: {
-    rows: 3,
+    rows: 6,
     },
     spaceBetween: 0,
     breakpoints: {
+        490: {
+            slidesPerView: 2,
+            grid: {
+            rows: 3,
+            },
+            spaceBetween: 0
+        },
         720: { //720이상 1280미만
             slidesPerView: 3,
             grid: {

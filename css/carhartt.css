@@ -55,7 +55,7 @@ body.fixed {
 	align-items: center;
 	padding-right: 12vw;
 	transition: 0.3s;
-	background-color: #000;
+	background-color: #333;
 }
 #main header .header_inner a.logo{
 	position: absolute;
@@ -251,7 +251,7 @@ a#btn.close {
 }
 #main .slider .keytext {
 	position: absolute;
-	left: 20vw;
+	left: 12vw;
 	top: 50%;
 	transform: translatey(-50%);
 	white-space: nowrap;
@@ -259,11 +259,9 @@ a#btn.close {
 #main .slider .keytext p.title {
 	font-size: 3.25em;
 	font-weight: 700;
-	color: #fff;
-	background-color: #000;
 	padding: 10px 20px;
+	color: #fff;
 }
-
 #main .slider .keytext p.subtitle {
 	margin: 20px 0 0 10px;
 }
@@ -271,9 +269,7 @@ a#btn.close {
 	padding: 7px 10px;
 	line-height: 170%;
 	font-size: 0.875em;
-	font-weight: 300;
 	color: #fff;
-	background-color: #000;
 }
 #main .dim {
 	display: none;
@@ -332,12 +328,12 @@ a#btn.close {
 		height: 23px;
 		/* background: url(../images/logo_white_m.png) no-repeat; */
 	}
-	#main .slider img.desktop {
+	/* #main .slider img.desktop {
 		display: none;
 	}
 	#main .slider img.mobile {
 		display: block;
-	}
+	} */
 }
 /* sub */
 #sub {
